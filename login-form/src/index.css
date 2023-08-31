@@ -10,15 +10,21 @@ html {
 
 body {
   margin: 0;
-  background-color: #3f3f3f;
+  background: url('https://images.unsplash.com/photo-1559762412-627400abeec1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80') no-repeat center center / cover;
+  display: flex;
+  justify-content: center;
+   align-items: center;
 }
 
 .app {
-  width: 90%;
-  max-width: 43rem;
+  max-width: 50rem;
+  height: 30rem;
   padding: 1rem;
   border-radius: 12px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
   margin: 3rem auto;
 }
 
