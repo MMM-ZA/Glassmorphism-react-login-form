@@ -3,20 +3,19 @@ import { useEffect, useState } from "react";
 const SimpleInput = (props) => {
 
    const [enteredName,setEnteredName] = useState('');
-   const [enteredNameisValid, setEnteredNameisValid] = useState(false);
-
    const [enetedNameisTouched, setEnteredNameisTouched] = useState(false);
+   const [formIsValid, setFormIsValid] = useState(false);
+
+   const enteredNameisValid = enteredName.trim() !== '';
+   const enteredInputIsInvalid = !enteredNameisValid && enetedNameisTouched;
 
    useEffect(() => {
-
-    if (enteredNameisValid) {
-      console.log('Input is Valid')
+    if (enteredNameisValid)
+    {setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
     }
-
-   }, [enteredNameisValid]);
-
-
-
+   }, [enteredNameisValid])
 
    const nameInputChangeHandler = event => {
     setEnteredName(event.target.value);
@@ -25,12 +24,6 @@ const SimpleInput = (props) => {
    const nampeInputBlurHandler = event => {
     setEnteredNameisTouched(true)
 
-
-    if (enteredName.trim() === '') {
-       setEnteredNameisValid(false);
-    return;
-    }
-
    }
 
    const submitFormHandler = (event) => {
@@ -38,23 +31,16 @@ const SimpleInput = (props) => {
 
     setEnteredNameisTouched(true);
 
-    if (enteredName.trim() === '') {
-       setEnteredNameisValid(false);
+    if (!enteredNameisValid) {
     return;
     }
 
-    setEnteredNameisValid(true)
-
     console.log(enteredName)
 
-    // const eneteredValue = nameInputRef.current.value;
-    // console.log(eneteredValue)
-
     setEnteredName('');
+    setEnteredNameisTouched(false)
 
    };
-
-   const enteredInputIsInvalid = !enteredNameisValid && enetedNameisTouched;
 
    const nameInputClasses = enteredNameisValid ? 'form-control invalid' : 'form-control';
 
@@ -73,7 +59,7 @@ const SimpleInput = (props) => {
 
       {enteredInputIsInvalid && <p className='error-text'>Name can't be empty!</p>}
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
