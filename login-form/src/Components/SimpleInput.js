@@ -11,11 +11,13 @@ const SimpleInput = (props) => {
    const enteredInputIsInvalid = !enteredNameisValid && enteredNameisTouched;
 
 
+   const enteredEmailIsValid = enteredEmail.includes('@');
+   const enteredEmailInputIsInvalid = !enteredEmailIsValid && enteredEmailisTouched;
 
 
    let formIsValid = false ;
 
-   if (enteredNameisValid) {
+   if (enteredNameisValid && enteredEmailIsValid) {
     formIsValid = true
    }
 
@@ -50,9 +52,15 @@ const SimpleInput = (props) => {
     setEnteredName('');
     setEnteredNameisTouched(false)
 
+    setEnteredEmail ('');
+    setEnteredEmailisTouched(false)
+
    };
 
    const nameInputClasses = enteredNameisValid ? 'form-control invalid' : 'form-control';
+
+    const EmailInputClasses = enteredEmailIsValid ? 'form-control invalid' : 'form-control';
+
 
   return (
     <form onSubmit={submitFormHandler}>
@@ -70,7 +78,7 @@ const SimpleInput = (props) => {
 
       {enteredInputIsInvalid && <p className='error-text'>Name can't be empty!</p>}
 
-      <div className={nameInputClasses}>
+      <div className={EmailInputClasses}>
         <label htmlFor='email'>Email</label>
         <input
          type='text'
@@ -82,7 +90,7 @@ const SimpleInput = (props) => {
       </div>
 
 
-      {enteredInputIsInvalid && <p className='error-text'>Please enter a vaild email!</p>}
+      {enteredEmailInputIsInvalid && <p className='error-text'>Please enter a vaild email!</p>}
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
       </div>
