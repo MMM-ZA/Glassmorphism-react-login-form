@@ -1,4 +1,4 @@
-const BasicForm = (props) => {
+const SignUp = (props) => {
   return (
     <form>
       <div className='control-group'>
@@ -22,4 +22,4 @@ const BasicForm = (props) => {
   );
 };
 
-export default BasicForm;
+export default SignUp;

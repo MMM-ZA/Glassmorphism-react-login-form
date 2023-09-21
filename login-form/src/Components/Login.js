@@ -1,7 +1,7 @@
 
 import useInput from '../Hooks/useInput';
 
-const SimpleInput = (props) => {
+const Login = (props) => {
 
   const {value:enteredValue,
       isValid: enteredNameisValid,
@@ -38,9 +38,6 @@ const SimpleInput = (props) => {
     resetNameInput();
     resetEmailInput();
 
-    // setEnteredEmail ('');
-    // setEnteredEmailisTouched(false)
-
    };
 
    const nameInputClasses = nameInputHasError ? 'form-control invalid' : 'form-control';
@@ -50,6 +47,7 @@ const SimpleInput = (props) => {
 
   return (
     <form onSubmit={submitFormHandler}>
+      <h1>Login</h1>
       <div className={nameInputClasses}>
         <label htmlFor='name'>Your Name</label>
         <input
@@ -80,7 +78,8 @@ const SimpleInput = (props) => {
         <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
+
   );
 };
 
-export default SimpleInput;
+export default Login;
