@@ -1,7 +1,13 @@
 
 import useInput from '../Hooks/useInput';
+import React from 'react';
+import { useLocation ,Link } from 'react-router-dom';
+
+
 
 const Login = (props) => {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
 
   const {value:enteredValue,
       isValid: enteredNameisValid,
@@ -76,6 +82,10 @@ const Login = (props) => {
       {emailInputHasError && <p className='error-text'>Please enter a vaild email!</p>}
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
+
+         {isLoginPage && (
+        <p>You don't have an account yet? <Link to="/signup">Sign Up</Link></p>
+      )}
       </div>
     </form>
 
