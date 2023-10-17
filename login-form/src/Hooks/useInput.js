@@ -38,5 +38,4 @@ const useInput = (ValidateValue) => {
 };
 
 
-
 export default useInput;
