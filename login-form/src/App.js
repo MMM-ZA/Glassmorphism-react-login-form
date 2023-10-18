@@ -6,19 +6,14 @@ import './index.css';
 
 function App() {
 
-
-
   return (
     <Router>
       <div className="app">
-
         <Routes>
          <Route path="/login"  element={<Login />} />
          <Route path="/signup" element={<SignUp />} />
-          <Route path="/" element={<Login />} />
+           <Route path="/" element={<Login isLoginPage={true} />} />
         </Routes>
-
-
       </div>
     </Router>
   );

@@ -42,7 +42,8 @@ const SignUp = (props) => {
       return;
     }
 
-    console.log(firstNameValue);
+    console.log('Submitted!')
+    console.log(firstNameValue, lastNameValue, enteredEmailAdd);
 
 
     resetFirstNameInput();
@@ -61,12 +62,14 @@ const SignUp = (props) => {
           <label htmlFor='firstName'>First Name</label>
           <input type='text' id='firstName' onChange={firstNameChangedHandler}
           onBlur={firstNameBlurHandler} />
+          {firstNameHasError && <p>Please enter valid First Name!</p>}
         </div>
         <div className={lastNameInputClasses}>
           <label htmlFor='lastName'>Last Name</label>
           <input type='text' id='lastName' onChange={lastNameChangedHandler}
           onBlur={lastNameBlurHandler}
           value={lastNameValue}/>
+          {lastNameHasError && <p>Please enter valid Last Name!</p>}
         </div>
       </div>
       <div className={emailAddInputClasses}>
@@ -74,6 +77,7 @@ const SignUp = (props) => {
         <input type='text' id='email' onChange={emailAddChangedHandler}
         onBlur={emailAddBlurHandler}
         value={enteredEmailAdd} />
+        {emailAddInputHasError && <p>Please enter a valid email!</p>}
       </div>
       <div className='form-actions'>
         <button disabled={!formIsValid}>Submit</button>

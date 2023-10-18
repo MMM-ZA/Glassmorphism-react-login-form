@@ -7,7 +7,7 @@ import { useLocation ,Link } from 'react-router-dom';
 
 const Login = (props) => {
   const location = useLocation();
-  const isLoginPage = location.pathname === '/login';
+  const isLoginPage = location.pathname === '/login' ;
 
   const {value:enteredValue,
       isValid: enteredNameisValid,
